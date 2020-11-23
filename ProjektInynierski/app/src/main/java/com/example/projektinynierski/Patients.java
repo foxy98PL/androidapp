@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -76,9 +78,14 @@ public class Patients extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                             Intent i = new Intent(getApplicationContext(),PatientActivity.class);
-                            Long pesel = null;
-                            i.putExtra(info.get(position).getPesel(),pesel);
-
+                            BasicInfoPatientModel patient = info.get(position);
+                            i.putExtra("pesel",patient.getPesel());
+                            i.putExtra("firstname",patient.getFirstname());
+                            i.putExtra("secondname",patient.getSecondname());
+                            i.putExtra("surrname",patient.getSurrname());
+                            i.putExtra("city",patient.getCity());
+                            i.putExtra("street",patient.getStreet());
+                            i.putExtra("house_nbr",patient.getHouse_nbr());
                             startActivity(i);
 
                         }

@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PatientActivity"></activity>
+        <activity android:name=".TreatActivity"></activity>
+        <activity android:name=".AlergyActivity" />
+        <activity android:name=".PatientActivity" />
         <activity android:name=".Patients" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".MainActivity">

@@ -4,17 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/layout"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/bLoginPapilar"
-        android:layout_width="159dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="500dp"
-         android:layout_centerHorizontal="true"
-        android:text="Zaloguj Liniami Papilarnymi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bLogin" />
 
     <Button
         android:id="@+id/bLogin"
@@ -24,7 +16,10 @@
         android:layout_centerHorizontal="true"
         android:text="Zaloguj"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPass" />
+        app:layout_constraintTop_toBottomOf="@+id/etPass"
+        android:background="@drawable/buttonbackground"
+        android:textColor="@color/gray"
+        />
 
     <EditText
         android:id="@+id/etLogin"
@@ -35,8 +30,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="user"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/etbackgroud"
+        />
 
     <EditText
         android:id="@+id/etPass"
@@ -47,6 +45,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="pass"
+        android:background="@drawable/etbackgroud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLogin" />
 </RelativeLayout>
