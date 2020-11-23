@@ -21,14 +21,12 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-import Functionalities.AppController;
-import Functionalities.Md5;
+import com.example.projektinynierski.Functionalities.AppController;
+import com.example.projektinynierski.Functionalities.Md5;
+import com.example.projektinynierski.Models.DocInfo;
 
 /**
  * @Author Tomasz Cieśliński
@@ -39,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
     public EditText password;
     public TextView textView;
     private int mStatusCode;
-    private String Login;
-    private String Password;
+    public static String Login;
+    public static String Password;
     private String token = "";
     private RequestQueue mQueue;
     private int secret = 12;
+    public static DocInfo docInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,13 +72,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    String tokenResponse = response.getString("token").toString();
-                    token += tokenResponse;
+                    String tokenValue = response.getString("token").toString();
+                    String id = response.get("id").toString();
+                    Long iD = Long.parseLong(id);
+                    docInfo = new DocInfo(tokenValue,iD);
                     String input = Login + secret + Password;
                     Md5 md5 = new Md5();
                     String checker = md5.md5(input);
-
-                    if (checker.equals(token)) {
+                    if (checker.equals(docInfo.getToken())) {
                         Toast toastOK = Toast.makeText(getApplicationContext(), "Pomyślnie zalogowano", Toast.LENGTH_SHORT);
                         toastOK.show();
                         Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);

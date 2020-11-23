@@ -1,4 +1,4 @@
-package Functionalities;
+package com.example.projektinynierski.Functionalities;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -1,4 +1,4 @@
-package Functionalities;
+package com.example.projektinynierski.Functionalities;
 
 import android.app.Application;
 import android.text.TextUtils;
