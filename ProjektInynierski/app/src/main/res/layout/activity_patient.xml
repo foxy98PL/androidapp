@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/layout"
     android:layout_height="match_parent"
     tools:context=".PatientActivity">
 
@@ -69,13 +70,17 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="50dp"
-            android:shadowRadius="10"/>
+            android:shadowRadius="10"
+            android:background="@drawable/buttonbackground"
+            android:textColor="@color/edittext"/>
         <Button
             android:id="@+id/treat"
             android:text="uzyskaj Listę chorób"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="50dp"
+            android:background="@drawable/buttonbackground"
+            android:textColor="@color/edittext"
        />
 
 

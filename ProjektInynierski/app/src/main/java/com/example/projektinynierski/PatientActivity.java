@@ -54,10 +54,22 @@ public class PatientActivity extends AppCompatActivity {
             }
         });
 
+        Button treatMentButton = findViewById(R.id.treat);
+
+        treatMentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),TreatActivity.class);
+                i.putExtra("pesel",patient.getPesel());
+                startActivity(i);
+            }
+        });
 
 
 
 
 
-}
+
+
+    }
 }
