@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:layout_margin="0dp"
+    android:orientation="vertical"
+    android:background="@drawable/layout"
+    >
+    <TextView
+        android:id="@+id/tekst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Czy chcesz usunąć pacjenta :"
+        android:textSize="25dp">
+
+    </TextView>
+    <TextView
+        android:id="@+id/dPesel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="25dp">
+
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/dHour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/dButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/buttonbackground"
+        android:text="Usuń"
+        android:textColor="@color/gray"
+        android:clickable="true">
+
+
+    </Button>
+
+</LinearLayout>

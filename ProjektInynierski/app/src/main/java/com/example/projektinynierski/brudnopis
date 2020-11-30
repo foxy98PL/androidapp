@@ -1,0 +1,91 @@
+private void getStatusRing() {
+        String urlJsonObj = "http:192.168.1.41:8080/projinz/doctor?docId=" + MainActivity.docInfo.getId();
+        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.GET,
+                urlJsonObj, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                     status = response.getString("status");
+                     String a = status;
+                    if(a.equals("11")){
+                        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+                        ringtone = RingtoneManager.getRingtone(getApplicationContext(),uri);
+                        ringtone.play();
+                        Thread th = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Thread.sleep(5000);
+                                    if (ringtone.isPlaying())
+                                        ringtone.stop();
+                                    setDoctorStatus0();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        th.start();
+
+
+                    }
+                } catch (JSONException e) {
+
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                String credentials = MainActivity.Login + ":" + MainActivity.Password;
+                String base64EncodedCredentials = Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Basic " + base64EncodedCredentials);
+                return headers;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(jsonRequest);
+    }
+
+    private void setDoctorStatus0() {
+        String urlJsonObj = "http:192.168.1.41:8080/projinz/setStatus0?docId="+MainActivity.docInfo.getId();
+        JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.PUT,
+                urlJsonObj, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                String credentials = MainActivity.Login + ":" + MainActivity.Password;
+                String base64EncodedCredentials = Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Basic " + base64EncodedCredentials);
+                return headers;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(jsonRequest);
+    }
+
+
+
+          row.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Dialog dialog= new Dialog(context);
+                    dialog.requestWindowFeature(1);
+                    dialog.setContentView(R.layout.windowdialog_layout);
+                    dialog.show();
+                }
+            });

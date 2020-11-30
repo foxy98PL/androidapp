@@ -4,6 +4,9 @@ package com.example.projektinynierski;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -16,9 +19,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
@@ -44,12 +49,15 @@ public class MainActivity extends AppCompatActivity {
     private int secret = 12;
     public static DocInfo docInfo;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         View button = findViewById(R.id.bLogin);
+
+
         mQueue = Volley.newRequestQueue(this);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void Login() {
@@ -121,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         };
         AppController.getInstance().addToRequestQueue(jsonRequest);
     }
+
 
 
 
