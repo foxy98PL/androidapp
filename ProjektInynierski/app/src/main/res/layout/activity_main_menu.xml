@@ -135,6 +135,21 @@
 
         </GridLayout>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="https://icons8.com"
+            android:textSize="18sp"
 
+            >
+
+        </TextView>
+
+    </LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+</RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
